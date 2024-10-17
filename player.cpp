@@ -4,7 +4,10 @@
 
 const float initial_money = 1000;
 bool Player::isPlayerNameValid(const std::string& name) const{
-    if(name.empty() || name.length() > 32) return false;
+    if(!(name.length() >= 2 && name.length() < 32)) {
+        std::cout << "Name must be at least 2 characters long and not more than 32 characters" << std::endl;
+        return false;
+    }
     return true;
 }
 Player::Player(){
@@ -37,11 +40,11 @@ void Player::setPlayerID(const int& id) { playerID = id; }
 Player::~Player(){}
 
 std::ostream& operator<<(std::ostream& os, const Player& player){
-            os << "Player ID: " << player.playerID << std::endl;
-            os << "Player Name: " << player.playerName << std::endl;
-            os << "Money: $" << player.money << std::endl;
-            os << "Rounds Played: " << player.rounds_played << std::endl;
-            os << "Total Money Won: $" << player.total_money_won << std::endl;
-            os << "Total Money Lost: $" << player.total_money_lost << std::endl;
-            return os;
+    os << "Player ID: " << player.playerID << std::endl;
+    os << "Player Name: " << player.playerName << std::endl;
+    os << "Money: $" << player.money << std::endl;
+    os << "Rounds Played: " << player.rounds_played << std::endl;
+    os << "Total Money Won: $" << player.total_money_won << std::endl;
+    os << "Total Money Lost: $" << player.total_money_lost << std::endl;
+    return os;
 }

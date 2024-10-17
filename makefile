@@ -8,7 +8,7 @@ CXXFLAGS = -Wall -g
 TARGET = game
 
 # Source files
-SRCS = main.cpp player.cpp game_loop.cpp
+SRCS = $(wildcard *.cpp)
 
 # Object files
 OBJS = $(SRCS:.cpp=.o)

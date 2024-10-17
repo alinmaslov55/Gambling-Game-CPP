@@ -17,8 +17,13 @@ int return_number_of_players(){
 std::vector<Player> set_player(const int& number_of_players){
     std::vector<Player> vectorPlayers(number_of_players);
 
-    for(auto& player: vectorPlayers){
-        std::cout << player << std::endl;
+    for(auto i = 0; i < number_of_players; i++){
+        std::string buffer_for_name = "";
+        std::cout << "Enter name for player " << i+1 << ": ";
+        std::cin >> buffer_for_name;
+        vectorPlayers[i].setPlayerID(i+1);
+        vectorPlayers[i].setPlayerName(buffer_for_name);
+        std::cout << "Player " << i+1 << " has been created with name: " << vectorPlayers[i].getPlayerName() << std::endl;
     }
 
     return vectorPlayers;
