@@ -15,18 +15,6 @@ std::vector<Player> set_player(){
     
     std::cout << "Inregistrare Jucatori: "<< std::endl;
 
-<<<<<<< Tabnine <<<<<<<
-    for(int i = 0; i < num_players; ++i){//-
-        //error says incomplete type is not allowed//-
-        Player* new_player = new Player();//-
-//-
-        delete new_player;//-
-    }//-
-    Player* new_player = new Player();//+
-    // ... other operations with new_player ...//+
-    delete new_player;//+
->>>>>>> Tabnine >>>>>>>// {"conversationId":"ad8b979c-c98c-405f-9604-08c62dfb1682","source":"instruct"}
-
 
 }
 void game_loop(){

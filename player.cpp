@@ -30,12 +30,14 @@ class Player{
             rounds_played = 0;
             total_money_won = total_money_lost = 0;
         }
-        void setName(std::vector<Player> &players){
-            while(playerName.length() == 0 || playerName.length() > 32 || verificareNume(players)){
-                std::cout << "Numele trebuie sa fie de 1-32 caractere si diferit de altele";
-                std::cout << "Introduceti numele jucatorului: ";
-                std::cin >> playerName;
-            }
+
+        Player(const int& id, const std::string& name): playerID(id), playerName(name){
+            money = initial_money;
+            rounds_played = 0;
+            total_money_won = total_money_lost = 0;
         }
+
         std::string getPlayerName() const { return playerName; }
+
+        ~Player(){}
 };
