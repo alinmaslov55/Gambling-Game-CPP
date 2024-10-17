@@ -1,21 +1,17 @@
 #include <iostream>
+#include <vector>
 #include "game_loop.h"
 #include "player.h"
 
 
-std::vector<Player> set_player(){
-    int num_players;
-    std::cout << "\nCati jucatori sunt prezenti(1 - 4): ";
-    std::cin >> num_players;
-    std::cout << '\n';
+std::vector<Player> set_player(const int& number_of_players){
+    std::vector<Player> vectorPlayers(number_of_players);
 
+    for(auto& player: vectorPlayers){
+        std::cout << player << std::endl;
+    }
 
-    // Initialize players
-    std::vector<Player> vector_players(num_players);
-    
-    std::cout << "Inregistrare Jucatori: "<< std::endl;
-
-
+    return vectorPlayers;
 }
 void game_loop(){
 
