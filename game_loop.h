@@ -5,7 +5,8 @@
 #define GAME_LOOP
 #include "player.h"
 
-std::vector<Player> set_player();
+int return_number_of_players();
+std::vector<Player> set_player(const int& number_of_players);
 void game_loop();
 
 #endif
