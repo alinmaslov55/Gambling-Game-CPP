@@ -1,5 +1,6 @@
 #include "print_to_screen.h"
 
+const std::string line = "----------------------------------------------------------------";
 int show_menu(){
     int option = -1;
     while(!(option >= 0 && option <= 3)){
@@ -10,4 +11,11 @@ int show_menu(){
         std::cin >> option;
     }
     return option;
+}
+void print_every_player_status(std::vector<Player> &vectorPlayers){
+    for(int i = 0; i < vectorPlayers.size(); i++){
+        std::cout << line << std::endl;
+        std::cout << vectorPlayers[i] << std::endl;
+        std::cout << line << std::endl;
+    }
 }

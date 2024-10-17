@@ -39,6 +39,7 @@ void game_loop(std::vector<Player> &vectorPlayers){
                 break;
             case 2:
                 //Arata statistica jucatorilor
+                print_every_player_status(vectorPlayers);
                 break;
             case 0:
                 //Iesire din joc

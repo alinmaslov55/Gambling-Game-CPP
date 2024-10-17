@@ -9,12 +9,13 @@ std::vector<Player> set_player(const int& number_of_players);
 int main(){
     int number_of_players = return_number_of_players();
 
-    std::vector<Player> players = set_player(number_of_players);
+    std::vector<Player> vectorPlayers = set_player(number_of_players);
 
 
-    game_loop(players);
+    game_loop(vectorPlayers);
 
 
     //Show final Statistics
+    print_every_player_status(vectorPlayers);
     return 0;
 }

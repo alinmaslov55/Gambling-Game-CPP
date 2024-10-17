@@ -45,6 +45,6 @@ std::ostream& operator<<(std::ostream& os, const Player& player){
     os << "Money: $" << player.money << std::endl;
     os << "Rounds Played: " << player.rounds_played << std::endl;
     os << "Total Money Won: $" << player.total_money_won << std::endl;
-    os << "Total Money Lost: $" << player.total_money_lost << std::endl;
+    os << "Total Money Lost: $" << player.total_money_lost;
     return os;
 }
