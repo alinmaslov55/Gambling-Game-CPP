@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "game_loop.h"
+#include "print_to_screen.h"
 #include "player.h"
 
 
@@ -22,7 +23,27 @@ std::vector<Player> set_player(const int& number_of_players){
 
     return vectorPlayers;
 }
-void game_loop(){
+void game_loop(std::vector<Player> &vectorPlayers){
+    //while loop cu meniul jocului
+    int option;
+    do{
+        option = show_menu();
+        switch(option){
+            case 1:
+                //Joaca o runda
+                break;
+            case 2:
+                //Arata statistica jucatorilor
+                break;
+            case 0:
+                //Iesire din joc
+                break;
+            default:
+                std::cout << "Invalid option. Please try again." << std::endl;
+                break;
+        }
+
+    }while(option != 0);
 
 
 }
