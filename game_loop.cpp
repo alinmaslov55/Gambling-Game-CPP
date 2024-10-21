@@ -36,6 +36,7 @@ void game_loop(std::vector<Player> &vectorPlayers){
         switch(option){
             case 1:
                 //Joaca o runda
+                play_a_round(vectorPlayers);
                 break;
             case 2:
                 //Arata statistica jucatorilor
@@ -51,5 +52,8 @@ void game_loop(std::vector<Player> &vectorPlayers){
 
     }while(option != 0);
 
+
+}
+void play_a_round(std::vector<Player> &vectorPlayers){
 
 }

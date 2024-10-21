@@ -14,8 +14,6 @@ int main(){
 
     game_loop(vectorPlayers);
 
-
-    //Show final Statistics
     print_every_player_status(vectorPlayers);
     return 0;
 }
