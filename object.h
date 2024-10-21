@@ -24,6 +24,9 @@ class Object{
     void setID(const int& ID);
     int getPosition() const;
     void setPosition(const int& position);
+    void drawTrack();
+    void setEmptyTrack();
+    void setCarOnTrack(const int& addPosition);
 };
 
 #endif
