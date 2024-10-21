@@ -1,4 +1,5 @@
 #include "object.h"
+#include "print_to_screen.h"
 
 const int track_length = 100;
 Object::Object(const int& ID){    
@@ -48,6 +49,8 @@ void Object::setEmptyTrack(){
 //          /o   o/ |
 //                  |
 void Object::setCarOnTrack(const int& addPosition){
+    this->position_on_track += addPosition;
+    if(this->position_on_track >= 90) this->position_on_track = 90;
     track[1][this->position_on_track] = '\\';
     track[1][this->position_on_track + 1] = 'o';
     track[1][this->position_on_track + 5] = 'o';
@@ -64,4 +67,10 @@ void Object::setCarOnTrack(const int& addPosition){
     track[2][this->position_on_track + 5] = '=';
     track[2][this->position_on_track + 6] = '=';
     track[2][this->position_on_track + 7] = ')';
+}
+void Object::print_on_track(const std::vector<Object>& vectorObjects){
+    std::cout << line << std::endl;
+    for(auto obj : vectorObjects){
+        obj.drawTrack();    
+    }
 }

@@ -1,11 +1,22 @@
 #include <iostream>
 #include <vector>
+#include <unistd.h>
 #include "game_loop.h"
 #include "print_to_screen.h"
 #include "player.h"
+#include "object.h"
 
 
+const int number_of_objects = 4;
 
+bool nowinners(std::vector<Object> &vectorObjects){
+    for(auto &object : vectorObjects){
+        if(object.getPosition() == 90){
+            return false;
+        }
+    }
+    return true;
+}
 int return_number_of_players(){
     int number_of_players;
     do{
@@ -55,5 +66,19 @@ void game_loop(std::vector<Player> &vectorPlayers){
 
 }
 void play_a_round(std::vector<Player> &vectorPlayers){
+    std::vector<Object> vectorObjects;
+    for(int i=0; i<number_of_objects; i++){
+        vectorObjects.push_back(Object(i+1));
+    }
 
+    while(nowinners(vectorObjects)){
+        for(auto &object: vectorObjects){
+            object.setEmptyTrack();
+            int addPosition = (random() % 6) + 1;
+            object.setCarOnTrack(addPosition);
+            system("clear");
+            Object::print_on_track(vectorObjects);
+            sleep(1);
+        }
+    }
 }
