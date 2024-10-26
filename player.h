@@ -28,6 +28,8 @@ class Player{
 
         void setCurrentBetNumber(const int& number);
         int getCurrentBetNumber() const;
+        void increaseRoundsWon();
+        void increaseRoundsPlayed();
         ~Player();
 };
 

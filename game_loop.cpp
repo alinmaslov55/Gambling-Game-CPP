@@ -87,5 +87,15 @@ void play_a_round(std::vector<Player> &vectorPlayers){
     for(int i=1; i<number_of_objects; i++){
         if(object->getPosition() < vectorObjects[i].getPosition()) object = &vectorObjects[i];
     }
-
+    int winnerOnjectID = object->getID();
+    for(auto &player : vectorPlayers){
+        if(player.getCurrentBetNumber() == winnerOnjectID){
+            player.increaseRoundsWon();
+            std::cout << "Player " << player.getPlayerID() << ": " << player.getPlayerName() << " won the round!" << std::endl;
+        }else{
+            std::cout << "Player " << player.getPlayerID() << ": " << player.getPlayerName() << " lost the round." << std::endl;
+        }
+        player.increaseRoundsPlayed();
+        player.setCurrentBetNumber(0);
+    }
 }

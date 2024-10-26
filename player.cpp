@@ -15,13 +15,13 @@ Player::Player(){
     playerID = 0;
     rounds_won = 0;
     rounds_played = 0;
-    currentBetNumber = NULL;
+    currentBetNumber = 0;
 }
 
 Player::Player(const int& id, const std::string& name): playerID(id), playerName(name){
     rounds_won = 0;
     rounds_played = 0;
-    currentBetNumber = NULL;
+    currentBetNumber = 0;
 }
 
 
@@ -53,8 +53,14 @@ void Player::playersBet(std::vector<Player>& playersVector, const int number_of_
         std::cout << "Choose from 1 to " << number_of_objects << std::endl;
         int betNumber;
         std::cin >> betNumber;
-
+        player.setCurrentBetNumber(betNumber);
     }
+}
+void Player::increaseRoundsWon(){
+    rounds_won++;
+}
+void Player::increaseRoundsPlayed(){
+    rounds_played++;
 }
 void Player::setCurrentBetNumber(const int& number){
     currentBetNumber = number;

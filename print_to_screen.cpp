@@ -15,7 +15,7 @@ int show_menu(){
     return option;
 }
 void print_every_player_status(std::vector<Player> &vectorPlayers){
-    for(auto player : vectorPlayers){
+    for(auto &player : vectorPlayers){
         std::cout << line << std::endl;
         std::cout << player << std::endl;
         std::cout << line << std::endl;
