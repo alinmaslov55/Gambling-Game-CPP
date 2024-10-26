@@ -13,15 +13,15 @@ bool Player::isPlayerNameValid(const std::string& name) const{
 Player::Player(){
     playerName = "";
     playerID = 0;
-    money = initial_money;
+    rounds_won = 0;
     rounds_played = 0;
-    total_money_won = total_money_lost = 0;
+    currentBetNumber = NULL;
 }
 
 Player::Player(const int& id, const std::string& name): playerID(id), playerName(name){
-    money = initial_money;
+    rounds_won = 0;
     rounds_played = 0;
-    total_money_won = total_money_lost = 0;
+    currentBetNumber = NULL;
 }
 
 
@@ -42,9 +42,23 @@ Player::~Player(){}
 std::ostream& operator<<(std::ostream& os, const Player& player){
     os << "Player ID: " << player.playerID << std::endl;
     os << "Player Name: " << player.playerName << std::endl;
-    os << "Money: $" << player.money << std::endl;
+    os << "Rounds Won: " << player.rounds_won << std::endl;
     os << "Rounds Played: " << player.rounds_played << std::endl;
-    os << "Total Money Won: $" << player.total_money_won << std::endl;
-    os << "Total Money Lost: $" << player.total_money_lost;
     return os;
+}
+void Player::playersBet(std::vector<Player>& playersVector, const int number_of_objects){
+    for(auto& player : playersVector){
+        std::cout << "Player " << player.getPlayerID() << ": " << player.getPlayerName() << std::endl;
+        std::cout << "Which Number do you think will win?" << std::endl;
+        std::cout << "Choose from 1 to " << number_of_objects << std::endl;
+        int betNumber;
+        std::cin >> betNumber;
+
+    }
+}
+void Player::setCurrentBetNumber(const int& number){
+    currentBetNumber = number;
+}
+int Player::getCurrentBetNumber() const{
+    return currentBetNumber;
 }

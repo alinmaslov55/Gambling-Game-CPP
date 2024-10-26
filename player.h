@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 #ifndef PLAYER
 #define PLAYER
 
@@ -8,12 +9,9 @@ class Player{
     private:
         int playerID;
         std::string playerName;
-        float money;
+        int rounds_won;
         int rounds_played;
-        float total_money_lost;
-        float total_money_won;
-        std::vector<float> history_of_rounds;
-
+        int currentBetNumber;
         bool isPlayerNameValid(const std::string& name) const;
     public:
         Player();
@@ -26,6 +24,10 @@ class Player{
         
         friend std::ostream& operator<<(std::ostream& os, const Player& player);
 
+        static void playersBet(std::vector<Player>& playersVector, const int number_of_objects);
+
+        void setCurrentBetNumber(const int& number);
+        int getCurrentBetNumber() const;
         ~Player();
 };
 

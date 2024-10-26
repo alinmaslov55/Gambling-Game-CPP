@@ -71,6 +71,8 @@ void play_a_round(std::vector<Player> &vectorPlayers){
         vectorObjects.push_back(Object(i+1));
     }
 
+    Player::playersBet(vectorPlayers, number_of_objects);
+
     while(nowinners(vectorObjects)){
         for(auto &object: vectorObjects){
             object.setEmptyTrack();
@@ -78,7 +80,12 @@ void play_a_round(std::vector<Player> &vectorPlayers){
             object.setCarOnTrack(addPosition);
             system("clear");
             Object::print_on_track(vectorObjects);
-            sleep(1);
         }
+        sleep(1);
     }
+    Object *object = &vectorObjects.front();
+    for(int i=1; i<number_of_objects; i++){
+        if(object->getPosition() < vectorObjects[i].getPosition()) object = &vectorObjects[i];
+    }
+
 }

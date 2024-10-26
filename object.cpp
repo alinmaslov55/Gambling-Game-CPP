@@ -4,7 +4,7 @@
 const int track_length = 100;
 Object::Object(const int& ID){    
     track.resize(5);
-    for(int i=0; i<track.size(); i++){
+    for(int i=0; i<(int)track.size(); i++){
         track[i].resize(track_length);
         for(int j=0; j<track_length; j++){
             track[i][j] = ' ';
@@ -27,7 +27,7 @@ void Object::setPosition(const int& position){
     this->position_on_track = position;
 }
 void Object::drawTrack(){
-    for(int i=0; i<track.size(); i++){
+    for(auto i=0; i<(int)track.size(); i++){
         for(int j=0; j<track_length; j++){
             std::cout << track[i][j];
         }
@@ -35,7 +35,7 @@ void Object::drawTrack(){
     }
 }
 void Object::setEmptyTrack(){
-    for(int i=0; i<track.size(); i++){
+    for(int i=0; i<(int)track.size(); i++){
         for(int j=0; j<track_length; j++){
             track[i][j] =' ';
         }
@@ -50,7 +50,7 @@ void Object::setEmptyTrack(){
 //                  |
 void Object::setCarOnTrack(const int& addPosition){
     this->position_on_track += addPosition;
-    if(this->position_on_track >= 90) this->position_on_track = 90;
+    //if(this->position_on_track >= 90) this->position_on_track = 90;
     track[1][this->position_on_track] = '\\';
     track[1][this->position_on_track + 1] = 'o';
     track[1][this->position_on_track + 5] = 'o';
